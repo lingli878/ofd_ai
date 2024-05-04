@@ -593,10 +593,10 @@ if __name__=='__main__':
     #####################################################################################
     # argparser for easier experimenting
     parser = argparse.ArgumentParser(description='Training Config for SD')
-    parser.add_argument('-BS', '--batch_size', default=10, type=int,
+    parser.add_argument('-BS', '--batch_size', default=16, type=int,
                         help='num batches or csv files per dataloader(64*BS)')
     parser.add_argument('-SIG', '--sig_per_batch', default=64, type=int, help='num signals per batch or csv file')
-    parser.add_argument('-NW', '--num_workers', default=20, type=int, help='num_workers for dataloader')
+    parser.add_argument('-NW', '--num_workers', default=0, type=int, help='num_workers for dataloader')
     parser.add_argument('-NB','--num_batches',default=400,type=int,help='num iterations per epoch')
     parser.add_argument('-SC', '--s_channel', type=int, help='starting channel index', default=0)
     parser.add_argument('-EC', '--e_channel', type=int, help='ending channel index', default=0)
@@ -604,7 +604,7 @@ if __name__=='__main__':
     parser.add_argument('-LR', '--learning_rate', default=0.0001, type=float, help='learning_rate for optimizer')
     parser.add_argument('-OPTIM', '--optimizer', default='adam', type=str, help='which optimizer is used')
     parser.add_argument('-MGPU','--multi_gpus',default=False,help='whether use DataParrellel')
-    parser.add_argument('-GI','--gpu_index',default=3,type=int,help='which gpu to use',required=True)
+    parser.add_argument('-GI','--gpu_index',default=0,type=int,help='which gpu to use',required=True)
     parser.add_argument('-M','--model',default='SigT',type=str,help='model choice (SigT,fcdnn,LSTM,ComNet)')
     parser.add_argument('-LP','--log_path',required=True,type=str,help='name of file to store val_acc')
     parser.add_argument('-SP','--state_path',required=True,type=str,help='name of file to store model weights')

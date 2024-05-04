@@ -195,15 +195,15 @@ def merge_csv(root_dir,mid_dir,output_name):
 
 
 if __name__=='__main__':
-    # Generate_Train_Data(256,10,'./DataSet/','validation',99,99)
+    #Generate_Train_Data(256,10,'./DataSet/','validation',99,99)
     # Generate_Train_Data(256,100,'./DataSet/','train',10)
-
+    # 产train 和 validation 数据集不一样，改ds_type train --num_batches = 400; validation --num_batches = 40
     parser = argparse.ArgumentParser(description='Generate Train/Val/Test data')
     parser.add_argument('-BS','--batch_size', default=64, type=int, help='num_signals per batch/csv file')
-    parser.add_argument('-NB','--num_batches', default=400, type=int, help='num_batches or csv files per dataset')
+    parser.add_argument('-NB','--num_batches', default=40, type=int, help='num_batches or csv files per dataset')
     parser.add_argument('-SC', '--s_channel', default=0, type=int, help='starting channel index')
     parser.add_argument('-EC', '--e_channel', default=0, type=int, help='ending channel index')
-    parser.add_argument('--ds_type', default='train', type=str, help='')
+    parser.add_argument('--ds_type', default='validation', type=str, help='')
     parser.add_argument('-SNR','--snr_db',default=10,help='SNR for signal in dB')
     args = parser.parse_args()
     batch_size = args.batch_size
